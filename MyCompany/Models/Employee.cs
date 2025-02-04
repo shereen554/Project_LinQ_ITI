@@ -30,6 +30,7 @@ namespace MyCompany.Models
         public Char Gender { get; set; }
 
         public int? Salary { get; set; }
+        public string Role { get; set; }
 
         public int? Superssn { get; set; }
         [ForeignKey("DnoNavigation")]
