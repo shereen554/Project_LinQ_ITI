@@ -28,57 +28,61 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
-            textBox1 = new TextBox();
-            comboBox1 = new ComboBox();
-            dateTimePicker1 = new DateTimePicker();
+            dgv_Dept = new DataGridView();
+            txt_DeptName = new TextBox();
+            cb_Manager = new ComboBox();
+            dt_MangeStar = new DateTimePicker();
             DepartMent = new Label();
             btn_add = new Button();
             label1 = new Label();
             label2 = new Label();
             btn_update = new Button();
             btn_delete = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            label3 = new Label();
+            label10 = new Label();
+            ((System.ComponentModel.ISupportInitialize)dgv_Dept).BeginInit();
             SuspendLayout();
             // 
-            // dataGridView1
+            // dgv_Dept
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Dock = DockStyle.Left;
-            dataGridView1.Location = new Point(0, 0);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(505, 551);
-            dataGridView1.TabIndex = 0;
+            dgv_Dept.BackgroundColor = SystemColors.ControlLightLight;
+            dgv_Dept.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgv_Dept.Dock = DockStyle.Left;
+            dgv_Dept.Location = new Point(0, 0);
+            dgv_Dept.Name = "dgv_Dept";
+            dgv_Dept.RowHeadersWidth = 62;
+            dgv_Dept.Size = new Size(505, 551);
+            dgv_Dept.TabIndex = 0;
+            dgv_Dept.RowHeaderMouseDoubleClick += dgv_Dept_RowHeaderMouseDoubleClick;
             // 
-            // textBox1
+            // txt_DeptName
             // 
-            textBox1.Location = new Point(825, 54);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(178, 31);
-            textBox1.TabIndex = 1;
+            txt_DeptName.Location = new Point(832, 103);
+            txt_DeptName.Name = "txt_DeptName";
+            txt_DeptName.Size = new Size(178, 31);
+            txt_DeptName.TabIndex = 1;
             // 
-            // comboBox1
+            // cb_Manager
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(825, 205);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(182, 33);
-            comboBox1.TabIndex = 2;
+            cb_Manager.FormattingEnabled = true;
+            cb_Manager.Location = new Point(832, 254);
+            cb_Manager.Name = "cb_Manager";
+            cb_Manager.Size = new Size(182, 33);
+            cb_Manager.TabIndex = 2;
             // 
-            // dateTimePicker1
+            // dt_MangeStar
             // 
-            dateTimePicker1.Location = new Point(825, 120);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(178, 31);
-            dateTimePicker1.TabIndex = 3;
+            dt_MangeStar.Location = new Point(832, 169);
+            dt_MangeStar.Name = "dt_MangeStar";
+            dt_MangeStar.Size = new Size(178, 31);
+            dt_MangeStar.TabIndex = 3;
             // 
             // DepartMent
             // 
             DepartMent.AutoSize = true;
             DepartMent.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             DepartMent.ForeColor = SystemColors.Highlight;
-            DepartMent.Location = new Point(655, 51);
+            DepartMent.Location = new Point(662, 100);
             DepartMent.Name = "DepartMent";
             DepartMent.Size = new Size(135, 32);
             DepartMent.TabIndex = 4;
@@ -94,13 +98,14 @@
             btn_add.TabIndex = 5;
             btn_add.Text = "Add";
             btn_add.UseVisualStyleBackColor = true;
+            btn_add.Click += btn_add_Click;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.Highlight;
-            label1.Location = new Point(621, 119);
+            label1.Location = new Point(628, 168);
             label1.Name = "label1";
             label1.Size = new Size(169, 32);
             label1.TabIndex = 6;
@@ -111,7 +116,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.Highlight;
-            label2.Location = new Point(655, 205);
+            label2.Location = new Point(662, 254);
             label2.Name = "label2";
             label2.Size = new Size(111, 32);
             label2.TabIndex = 7;
@@ -127,6 +132,7 @@
             btn_update.TabIndex = 8;
             btn_update.Text = "Update";
             btn_update.UseVisualStyleBackColor = true;
+            btn_update.Click += btn_update_Click;
             // 
             // btn_delete
             // 
@@ -138,40 +144,73 @@
             btn_delete.TabIndex = 9;
             btn_delete.Text = "Delete";
             btn_delete.UseVisualStyleBackColor = true;
+            btn_delete.Click += btn_delete_Click;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = SystemColors.Highlight;
+            label3.Location = new Point(1094, 5);
+            label3.Name = "label3";
+            label3.Size = new Size(35, 38);
+            label3.TabIndex = 10;
+            label3.Text = "X";
+            label3.Click += label3_Click;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 14F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
+            label10.ForeColor = SystemColors.ButtonHighlight;
+            label10.Location = new Point(511, 5);
+            label10.Name = "label10";
+            label10.Size = new Size(128, 38);
+            label10.TabIndex = 26;
+            label10.Text = "<-- back";
+            label10.Click += label10_Click;
             // 
             // CRUD_Department
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ActiveCaptionText;
             ClientSize = new Size(1142, 551);
+            Controls.Add(label10);
+            Controls.Add(label3);
             Controls.Add(btn_delete);
             Controls.Add(btn_update);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(btn_add);
             Controls.Add(DepartMent);
-            Controls.Add(dateTimePicker1);
-            Controls.Add(comboBox1);
-            Controls.Add(textBox1);
-            Controls.Add(dataGridView1);
+            Controls.Add(dt_MangeStar);
+            Controls.Add(cb_Manager);
+            Controls.Add(txt_DeptName);
+            Controls.Add(dgv_Dept);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "CRUD_Department";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "CRUD_Department";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            Load += CRUD_Department_Load;
+            ((System.ComponentModel.ISupportInitialize)dgv_Dept).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private DataGridView dataGridView1;
-        private TextBox textBox1;
-        private ComboBox comboBox1;
-        private DateTimePicker dateTimePicker1;
+        private DataGridView dgv_Dept;
+        private TextBox txt_DeptName;
+        private ComboBox cb_Manager;
+        private DateTimePicker dt_MangeStar;
         private Label DepartMent;
         private Button btn_add;
         private Label label1;
         private Label label2;
         private Button btn_update;
         private Button btn_delete;
+        private Label label3;
+        private Label label10;
     }
 }

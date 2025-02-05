@@ -49,5 +49,17 @@ namespace MyCompany
                 MessageBox.Show("Invalid username or password. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            Register register = new Register();
+            register.ShowDialog();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            txt_passowrd.PasswordChar = login_showPass.Checked ? '\0' : '*';
+        }
     }
 }

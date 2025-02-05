@@ -75,7 +75,8 @@ namespace MyCompany
                 Address = txt_address.Text,
                 BirthDate = dt_birthDate.Value,
                 Passowrd = txt_password.Text,
-                Gender = gender
+                Gender = gender,
+                Role = "User"
             };
 
             try
@@ -100,6 +101,23 @@ namespace MyCompany
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            Login login = new Login();
+            login.ShowDialog();
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            txt_password.PasswordChar = login_showPass.Checked ? '\0' : '*';
         }
     }
 }

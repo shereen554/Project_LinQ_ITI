@@ -63,9 +63,29 @@ namespace MyCompany.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap developers_high_resolution_logo {
+            get {
+                object obj = ResourceManager.GetObject("developers-high-resolution-logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap developers_high_resolution22_logo {
             get {
                 object obj = ResourceManager.GetObject("developers-high-resolution22-logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap developers_high_resolution22_logo1 {
+            get {
+                object obj = ResourceManager.GetObject("developers-high-resolution22-logo1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -127,6 +147,26 @@ namespace MyCompany.Properties {
         internal static System.Drawing.Bitmap programming_background3 {
             get {
                 object obj = ResourceManager.GetObject("programming-background3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap programming_background4 {
+            get {
+                object obj = ResourceManager.GetObject("programming-background4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap programming_background5 {
+            get {
+                object obj = ResourceManager.GetObject("programming-background5", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

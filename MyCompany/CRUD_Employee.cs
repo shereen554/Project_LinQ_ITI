@@ -16,9 +16,11 @@ namespace MyCompany
     {
         MyCompanyContext db;
         int id;
-        public CRUD_Employee()
+        string _UserName;
+        public CRUD_Employee(string username)
         {
             InitializeComponent();
+            this._UserName = username;
             db = new MyCompanyContext();
         }
         public void ShowEmployee()
@@ -194,6 +196,17 @@ namespace MyCompany
                     btn_update.Visible = false;
                 }
             }
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+            DashBoard dash = new DashBoard(_UserName);
+            dash.Show();
         }
     }
 }

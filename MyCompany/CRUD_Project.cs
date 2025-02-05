@@ -15,9 +15,11 @@ namespace MyCompany
     {
         MyCompanyContext db;
         int id;
-        public CRUD_Project()
+        string _username;
+        public CRUD_Project(string username)
         {
             InitializeComponent();
+            this._username = username;
             db = new MyCompanyContext();
         }
         public void ShowProject()
@@ -120,7 +122,7 @@ namespace MyCompany
                 MessageBox.Show("Selected Project !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             var project = db.Projects.FirstOrDefault(n => n.PNum == id);
-            if (project == null) 
+            if (project == null)
             {
                 MessageBox.Show(" Project Not Found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -129,6 +131,19 @@ namespace MyCompany
             db.SaveChanges();
             MessageBox.Show("Project Deleted Succesfuly ", "Informatio", MessageBoxButtons.OK, MessageBoxIcon.Information);
             ShowProject();
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DashBoard dashBoard= new DashBoard(_username);
+            dashBoard.Show();
 
         }
     }

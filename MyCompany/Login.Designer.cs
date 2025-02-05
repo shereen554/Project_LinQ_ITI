@@ -32,6 +32,7 @@
             label2 = new Label();
             pictureBox1 = new PictureBox();
             panel2 = new Panel();
+            login_showPass = new CheckBox();
             linkLabel1 = new LinkLabel();
             btn_login = new Button();
             label4 = new Label();
@@ -80,6 +81,7 @@
             // panel2
             // 
             panel2.BackColor = Color.Snow;
+            panel2.Controls.Add(login_showPass);
             panel2.Controls.Add(linkLabel1);
             panel2.Controls.Add(btn_login);
             panel2.Controls.Add(label4);
@@ -89,21 +91,32 @@
             panel2.Controls.Add(label1);
             panel2.Location = new Point(567, 96);
             panel2.Name = "panel2";
-            panel2.Size = new Size(542, 487);
+            panel2.Size = new Size(542, 479);
             panel2.TabIndex = 1;
             panel2.Paint += panel2_Paint;
+            // 
+            // login_showPass
+            // 
+            login_showPass.AutoSize = true;
+            login_showPass.ForeColor = SystemColors.HotTrack;
+            login_showPass.Location = new Point(214, 282);
+            login_showPass.Name = "login_showPass";
+            login_showPass.Size = new Size(82, 29);
+            login_showPass.TabIndex = 7;
+            login_showPass.Text = "Show";
+            login_showPass.UseVisualStyleBackColor = true;
+            login_showPass.CheckedChanged += checkBox1_CheckedChanged;
             // 
             // linkLabel1
             // 
             linkLabel1.AutoSize = true;
-            linkLabel1.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            linkLabel1.LinkColor = SystemColors.MenuHighlight;
-            linkLabel1.Location = new Point(205, 331);
+            linkLabel1.Location = new Point(214, 338);
             linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(300, 25);
+            linkLabel1.Size = new Size(244, 25);
             linkLabel1.TabIndex = 6;
             linkLabel1.TabStop = true;
-            linkLabel1.Text = "Do you already have an account?";
+            linkLabel1.Text = "Do you not have an account?";
+            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
             // 
             // btn_login
             // 
@@ -111,7 +124,7 @@
             btn_login.FlatStyle = FlatStyle.Flat;
             btn_login.Font = new Font("Segoe UI Black", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_login.ForeColor = Color.White;
-            btn_login.Location = new Point(214, 403);
+            btn_login.Location = new Point(208, 387);
             btn_login.Name = "btn_login";
             btn_login.Size = new Size(144, 47);
             btn_login.TabIndex = 5;
@@ -124,7 +137,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Black", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = SystemColors.MenuHighlight;
-            label4.Location = new Point(18, 247);
+            label4.Location = new Point(18, 221);
             label4.Name = "label4";
             label4.Size = new Size(171, 45);
             label4.TabIndex = 4;
@@ -133,7 +146,7 @@
             // txt_passowrd
             // 
             txt_passowrd.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txt_passowrd.Location = new Point(205, 246);
+            txt_passowrd.Location = new Point(205, 220);
             txt_passowrd.Multiline = true;
             txt_passowrd.Name = "txt_passowrd";
             txt_passowrd.PasswordChar = '*';
@@ -203,7 +216,8 @@
         private Label label4;
         private TextBox txt_passowrd;
         private Label label3;
-        private LinkLabel linkLabel1;
         private Button btn_login;
+        private LinkLabel linkLabel1;
+        private CheckBox login_showPass;
     }
 }

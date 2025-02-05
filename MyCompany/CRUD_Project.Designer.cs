@@ -38,11 +38,14 @@
             btn_add = new Button();
             btn_delete = new Button();
             btn_update = new Button();
+            label4 = new Label();
+            label10 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgv_Project).BeginInit();
             SuspendLayout();
             // 
             // dgv_Project
             // 
+            dgv_Project.BackgroundColor = SystemColors.ButtonFace;
             dgv_Project.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_Project.Dock = DockStyle.Bottom;
             dgv_Project.Location = new Point(0, 278);
@@ -146,11 +149,39 @@
             btn_update.UseVisualStyleBackColor = true;
             btn_update.Click += btn_update_Click;
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.ForeColor = SystemColors.Highlight;
+            label4.Location = new Point(989, 9);
+            label4.Name = "label4";
+            label4.Size = new Size(35, 38);
+            label4.TabIndex = 10;
+            label4.Text = "X";
+            label4.Click += label4_Click;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.FlatStyle = FlatStyle.Flat;
+            label10.Font = new Font("Segoe UI", 14F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
+            label10.ForeColor = SystemColors.ButtonHighlight;
+            label10.Location = new Point(12, 0);
+            label10.Name = "label10";
+            label10.Size = new Size(120, 38);
+            label10.TabIndex = 26;
+            label10.Text = "<--back";
+            label10.Click += label10_Click;
+            // 
             // CRUD_Project
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ActiveCaptionText;
             ClientSize = new Size(1036, 557);
+            Controls.Add(label10);
+            Controls.Add(label4);
             Controls.Add(btn_update);
             Controls.Add(btn_delete);
             Controls.Add(btn_add);
@@ -161,6 +192,7 @@
             Controls.Add(label1);
             Controls.Add(txt_PName);
             Controls.Add(dgv_Project);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "CRUD_Project";
             Text = "CRUD_Project";
             Load += CRUD_Project_Load;
@@ -181,5 +213,7 @@
         private Button btn_add;
         private Button btn_delete;
         private Button btn_update;
+        private Label label4;
+        private Label label10;
     }
 }

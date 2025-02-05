@@ -42,10 +42,14 @@
             label4 = new Label();
             button2 = new Button();
             panel2 = new Panel();
+            login_showPass = new CheckBox();
             label5 = new Label();
             X = new Label();
+            pictureBox1 = new PictureBox();
+            btn_LogOut = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -73,6 +77,7 @@
             txt_Password.Location = new Point(212, 99);
             txt_Password.Multiline = true;
             txt_Password.Name = "txt_Password";
+            txt_Password.PasswordChar = '*';
             txt_Password.Size = new Size(225, 46);
             txt_Password.TabIndex = 3;
             // 
@@ -121,6 +126,7 @@
             // 
             // panel1
             // 
+            panel1.BackColor = Color.White;
             panel1.Controls.Add(label6);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(button1);
@@ -148,6 +154,7 @@
             txt_OldPassword.Location = new Point(212, 204);
             txt_OldPassword.Multiline = true;
             txt_OldPassword.Name = "txt_OldPassword";
+            txt_OldPassword.PasswordChar = '*';
             txt_OldPassword.Size = new Size(225, 41);
             txt_OldPassword.TabIndex = 9;
             // 
@@ -167,9 +174,9 @@
             button2.BackColor = SystemColors.Highlight;
             button2.Font = new Font("Segoe UI", 14F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             button2.ForeColor = Color.White;
-            button2.Location = new Point(142, 317);
+            button2.Location = new Point(130, 317);
             button2.Name = "button2";
-            button2.Size = new Size(143, 51);
+            button2.Size = new Size(187, 51);
             button2.TabIndex = 10;
             button2.Text = "Save Passowrd";
             button2.UseVisualStyleBackColor = false;
@@ -177,6 +184,8 @@
             // 
             // panel2
             // 
+            panel2.BackColor = Color.White;
+            panel2.Controls.Add(login_showPass);
             panel2.Controls.Add(label5);
             panel2.Controls.Add(label2);
             panel2.Controls.Add(button2);
@@ -187,6 +196,18 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(455, 423);
             panel2.TabIndex = 11;
+            // 
+            // login_showPass
+            // 
+            login_showPass.AutoSize = true;
+            login_showPass.ForeColor = SystemColors.HotTrack;
+            login_showPass.Location = new Point(219, 273);
+            login_showPass.Name = "login_showPass";
+            login_showPass.Size = new Size(82, 29);
+            login_showPass.TabIndex = 12;
+            login_showPass.Text = "Show";
+            login_showPass.UseVisualStyleBackColor = true;
+            login_showPass.CheckedChanged += login_showPass_CheckedChanged;
             // 
             // label5
             // 
@@ -202,6 +223,7 @@
             // X
             // 
             X.AutoSize = true;
+            X.BackColor = Color.Transparent;
             X.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
             X.ForeColor = SystemColors.Highlight;
             X.Location = new Point(1090, 9);
@@ -211,12 +233,42 @@
             X.Text = "X";
             X.Click += X_Click;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.Image = Properties.Resources.developers_high_resolution22_logo1;
+            pictureBox1.Location = new Point(25, 0);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(222, 66);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 13;
+            pictureBox1.TabStop = false;
+            // 
+            // btn_LogOut
+            // 
+            btn_LogOut.BackColor = Color.White;
+            btn_LogOut.FlatAppearance.BorderColor = SystemColors.Highlight;
+            btn_LogOut.FlatAppearance.BorderSize = 3;
+            btn_LogOut.FlatAppearance.MouseDownBackColor = Color.FromArgb(192, 192, 255);
+            btn_LogOut.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            btn_LogOut.ForeColor = SystemColors.Highlight;
+            btn_LogOut.Location = new Point(881, 9);
+            btn_LogOut.Name = "btn_LogOut";
+            btn_LogOut.Size = new Size(129, 45);
+            btn_LogOut.TabIndex = 13;
+            btn_LogOut.Text = "back";
+            btn_LogOut.UseVisualStyleBackColor = false;
+            btn_LogOut.Click += btn_LogOut_Click;
+            // 
             // EditProfile
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Properties.Resources.programming_background5;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1143, 523);
+            Controls.Add(btn_LogOut);
+            Controls.Add(pictureBox1);
             Controls.Add(X);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -229,6 +281,7 @@
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -251,5 +304,8 @@
         private Label label5;
         private Label label6;
         private Label X;
+        private PictureBox pictureBox1;
+        private CheckBox login_showPass;
+        private Button btn_LogOut;
     }
 }

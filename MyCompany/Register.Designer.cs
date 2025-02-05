@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Register));
             txt_userName = new TextBox();
             label1 = new Label();
             label2 = new Label();
@@ -44,9 +45,12 @@
             btn_register = new Button();
             label7 = new Label();
             panel1 = new Panel();
+            login_showPass = new CheckBox();
             linkLabel1 = new LinkLabel();
             label8 = new Label();
+            pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // txt_userName
@@ -86,6 +90,7 @@
             txt_password.Location = new Point(187, 188);
             txt_password.Multiline = true;
             txt_password.Name = "txt_password";
+            txt_password.PasswordChar = '*';
             txt_password.Size = new Size(234, 37);
             txt_password.TabIndex = 2;
             // 
@@ -114,7 +119,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 11F, FontStyle.Bold | FontStyle.Italic);
             label4.ForeColor = SystemColors.Highlight;
-            label4.Location = new Point(75, 241);
+            label4.Location = new Point(75, 269);
             label4.Name = "label4";
             label4.Size = new Size(94, 30);
             label4.TabIndex = 7;
@@ -123,7 +128,7 @@
             // txt_address
             // 
             txt_address.ForeColor = SystemColors.Highlight;
-            txt_address.Location = new Point(187, 242);
+            txt_address.Location = new Point(187, 270);
             txt_address.Multiline = true;
             txt_address.Name = "txt_address";
             txt_address.Size = new Size(234, 37);
@@ -134,7 +139,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 11F, FontStyle.Bold | FontStyle.Italic);
             label5.ForeColor = SystemColors.Highlight;
-            label5.Location = new Point(50, 316);
+            label5.Location = new Point(50, 330);
             label5.Name = "label5";
             label5.Size = new Size(119, 30);
             label5.TabIndex = 9;
@@ -142,7 +147,7 @@
             // 
             // dt_birthDate
             // 
-            dt_birthDate.Location = new Point(187, 314);
+            dt_birthDate.Location = new Point(187, 328);
             dt_birthDate.Name = "dt_birthDate";
             dt_birthDate.Size = new Size(234, 31);
             dt_birthDate.TabIndex = 10;
@@ -208,6 +213,8 @@
             // 
             // panel1
             // 
+            panel1.BackColor = Color.White;
+            panel1.Controls.Add(login_showPass);
             panel1.Controls.Add(linkLabel1);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(label7);
@@ -230,6 +237,18 @@
             panel1.TabIndex = 16;
             panel1.Paint += panel1_Paint;
             // 
+            // login_showPass
+            // 
+            login_showPass.AutoSize = true;
+            login_showPass.ForeColor = SystemColors.HotTrack;
+            login_showPass.Location = new Point(196, 237);
+            login_showPass.Name = "login_showPass";
+            login_showPass.Size = new Size(80, 29);
+            login_showPass.TabIndex = 17;
+            login_showPass.Text = "Show";
+            login_showPass.UseVisualStyleBackColor = true;
+            login_showPass.CheckedChanged += checkBox1_CheckedChanged;
+            // 
             // linkLabel1
             // 
             linkLabel1.AutoSize = true;
@@ -241,6 +260,7 @@
             linkLabel1.TabIndex = 16;
             linkLabel1.TabStop = true;
             linkLabel1.Text = "Do you have an account?";
+            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
             // 
             // label8
             // 
@@ -252,12 +272,28 @@
             label8.Size = new Size(40, 42);
             label8.TabIndex = 17;
             label8.Text = "X";
+            label8.Click += label8_Click;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(-6, -1);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(231, 96);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 18;
+            pictureBox1.TabStop = false;
             // 
             // Register
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ActiveCaptionText;
+            BackgroundImage = Properties.Resources.programming_background4;
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1028, 574);
+            Controls.Add(pictureBox1);
             Controls.Add(label8);
             Controls.Add(panel1);
             Font = new Font("Segoe UI", 9F, FontStyle.Italic);
@@ -268,6 +304,7 @@
             Load += Register_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -292,5 +329,7 @@
         private Panel panel1;
         private LinkLabel linkLabel1;
         private Label label8;
+        private PictureBox pictureBox1;
+        private CheckBox login_showPass;
     }
 }

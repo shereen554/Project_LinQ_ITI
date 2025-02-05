@@ -15,16 +15,24 @@ namespace MyCompany
     {
         Employee employee;
         MyCompanyContext db;
+        string _username;
 
-        public EditProfile(Employee employee)
+        public EditProfile(string username)
         {
             InitializeComponent();
-            employee = employee;
+            this._username = username;
+
             db = new MyCompanyContext();
         }
 
         private void EditProfile_Load(object sender, EventArgs e)
         {
+            if (_username == null)
+            {
+                MessageBox.Show("the Employee Not Found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            employee = db.Employees.FirstOrDefault(n => n.UserName == _username);
             if (employee == null)
             {
                 MessageBox.Show("the Employee Not Found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -33,7 +41,6 @@ namespace MyCompany
 
             txt_Name.Text = employee.Name;
             txt_Address.Text = employee.Address;
-            txt_Password.Text = employee.Passowrd;
 
         }
 
@@ -64,10 +71,12 @@ namespace MyCompany
             db.SaveChanges();
 
             MessageBox.Show("Update Data !", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            txt_Address.Text = txt_Name.Text = "";
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+
             if (txt_Password.Text.Length <= 8)
             {
                 MessageBox.Show("Password must be at least 8 characters long.", "Warrning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -77,7 +86,9 @@ namespace MyCompany
             {
                 employee.Passowrd = txt_Password.Text;
                 db.SaveChanges();
+
                 MessageBox.Show("Update Password!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txt_Password.Text = txt_OldPassword.Text = "";
             }
             else
             {
@@ -88,6 +99,19 @@ namespace MyCompany
         private void X_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void login_showPass_CheckedChanged(object sender, EventArgs e)
+        {
+            txt_Password.PasswordChar = txt_OldPassword.PasswordChar = login_showPass.Checked ? '\0' : '*';
+        }
+
+        private void btn_LogOut_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ShowProfile showProfile = new ShowProfile(_username);
+            showProfile.ShowDialog();
+
         }
     }
 }

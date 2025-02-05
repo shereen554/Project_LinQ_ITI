@@ -78,7 +78,7 @@ namespace MyCompany
         private void btn_Edit_profile_Click(object sender, EventArgs e)
         {
             this.Hide();
-            EditProfile editProfile = new EditProfile(employee);
+            EditProfile editProfile = new EditProfile(_userName);
             editProfile.ShowDialog();
         }
 
@@ -90,6 +90,13 @@ namespace MyCompany
         private void label5_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btn_LogOut_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Login login=new Login();
+            login.ShowDialog();
         }
     }
 }

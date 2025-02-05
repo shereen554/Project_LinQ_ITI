@@ -96,6 +96,7 @@
             btn_Department.TabIndex = 4;
             btn_Department.Text = "Department";
             btn_Department.UseVisualStyleBackColor = false;
+            btn_Department.Click += btn_Department_Click;
             // 
             // label1
             // 

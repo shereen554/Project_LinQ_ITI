@@ -40,6 +40,7 @@
             pictureBox1 = new PictureBox();
             label3 = new Label();
             label5 = new Label();
+            btn_LogOut = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -59,7 +60,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic);
             label1.ForeColor = SystemColors.Highlight;
-            label1.Location = new Point(545, 106);
+            label1.Location = new Point(385, 106);
             label1.Name = "label1";
             label1.Size = new Size(214, 32);
             label1.TabIndex = 1;
@@ -70,7 +71,7 @@
             lb_Dept.AutoSize = true;
             lb_Dept.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic);
             lb_Dept.ForeColor = SystemColors.Highlight;
-            lb_Dept.Location = new Point(792, 106);
+            lb_Dept.Location = new Point(632, 106);
             lb_Dept.Name = "lb_Dept";
             lb_Dept.Size = new Size(66, 32);
             lb_Dept.TabIndex = 2;
@@ -113,7 +114,7 @@
             lb_supervisor.AutoSize = true;
             lb_supervisor.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic);
             lb_supervisor.ForeColor = SystemColors.Highlight;
-            lb_supervisor.Location = new Point(760, 167);
+            lb_supervisor.Location = new Point(600, 167);
             lb_supervisor.Name = "lb_supervisor";
             lb_supervisor.Size = new Size(128, 32);
             lb_supervisor.TabIndex = 7;
@@ -124,7 +125,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic);
             label4.ForeColor = SystemColors.Highlight;
-            label4.Location = new Point(597, 167);
+            label4.Location = new Point(437, 167);
             label4.Name = "label4";
             label4.Size = new Size(143, 32);
             label4.TabIndex = 6;
@@ -177,12 +178,25 @@
             label5.Text = "X";
             label5.Click += label5_Click;
             // 
+            // btn_LogOut
+            // 
+            btn_LogOut.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            btn_LogOut.ForeColor = SystemColors.Highlight;
+            btn_LogOut.Location = new Point(30, 14);
+            btn_LogOut.Name = "btn_LogOut";
+            btn_LogOut.Size = new Size(129, 42);
+            btn_LogOut.TabIndex = 12;
+            btn_LogOut.Text = "Log Out";
+            btn_LogOut.UseVisualStyleBackColor = true;
+            btn_LogOut.Click += btn_LogOut_Click;
+            // 
             // ShowProfile
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaptionText;
             ClientSize = new Size(1017, 522);
+            Controls.Add(btn_LogOut);
             Controls.Add(label5);
             Controls.Add(label3);
             Controls.Add(pictureBox1);
@@ -219,5 +233,6 @@
         private PictureBox pictureBox1;
         private Label label3;
         private Label label5;
+        private Button btn_LogOut;
     }
 }
