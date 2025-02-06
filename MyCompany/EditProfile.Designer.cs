@@ -47,6 +47,12 @@
             X = new Label();
             pictureBox1 = new PictureBox();
             btn_LogOut = new Button();
+            txt_Phone = new TextBox();
+            label7 = new Label();
+            txt_Email = new TextBox();
+            label8 = new Label();
+            lblResultPhone = new Label();
+            lblResult = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -58,7 +64,7 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.Highlight;
-            label1.Location = new Point(42, 107);
+            label1.Location = new Point(42, 79);
             label1.Name = "label1";
             label1.Size = new Size(94, 38);
             label1.TabIndex = 0;
@@ -66,7 +72,7 @@
             // 
             // txt_Name
             // 
-            txt_Name.Location = new Point(164, 101);
+            txt_Name.Location = new Point(164, 73);
             txt_Name.Multiline = true;
             txt_Name.Name = "txt_Name";
             txt_Name.Size = new Size(225, 44);
@@ -94,7 +100,7 @@
             // 
             // txt_Address
             // 
-            txt_Address.Location = new Point(164, 198);
+            txt_Address.Location = new Point(164, 131);
             txt_Address.Multiline = true;
             txt_Address.Name = "txt_Address";
             txt_Address.Size = new Size(225, 41);
@@ -105,7 +111,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold | FontStyle.Italic);
             label3.ForeColor = SystemColors.Highlight;
-            label3.Location = new Point(19, 201);
+            label3.Location = new Point(19, 134);
             label3.Name = "label3";
             label3.Size = new Size(117, 38);
             label3.TabIndex = 4;
@@ -116,7 +122,7 @@
             button1.BackColor = SystemColors.Highlight;
             button1.Font = new Font("Segoe UI", 14F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.White;
-            button1.Location = new Point(112, 310);
+            button1.Location = new Point(105, 351);
             button1.Name = "button1";
             button1.Size = new Size(265, 58);
             button1.TabIndex = 6;
@@ -127,6 +133,12 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(lblResult);
+            panel1.Controls.Add(lblResultPhone);
+            panel1.Controls.Add(txt_Email);
+            panel1.Controls.Add(label8);
+            panel1.Controls.Add(txt_Phone);
+            panel1.Controls.Add(label7);
             panel1.Controls.Add(label6);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(button1);
@@ -260,6 +272,60 @@
             btn_LogOut.UseVisualStyleBackColor = false;
             btn_LogOut.Click += btn_LogOut_Click;
             // 
+            // txt_Phone
+            // 
+            txt_Phone.Location = new Point(164, 184);
+            txt_Phone.Multiline = true;
+            txt_Phone.Name = "txt_Phone";
+            txt_Phone.Size = new Size(225, 41);
+            txt_Phone.TabIndex = 14;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold | FontStyle.Italic);
+            label7.ForeColor = SystemColors.Highlight;
+            label7.Location = new Point(40, 187);
+            label7.Name = "label7";
+            label7.Size = new Size(96, 38);
+            label7.TabIndex = 13;
+            label7.Text = "Phone";
+            // 
+            // txt_Email
+            // 
+            txt_Email.Location = new Point(164, 270);
+            txt_Email.Multiline = true;
+            txt_Email.Name = "txt_Email";
+            txt_Email.Size = new Size(225, 41);
+            txt_Email.TabIndex = 16;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold | FontStyle.Italic);
+            label8.ForeColor = SystemColors.Highlight;
+            label8.Location = new Point(48, 273);
+            label8.Name = "label8";
+            label8.Size = new Size(88, 38);
+            label8.TabIndex = 15;
+            label8.Text = "Email";
+            // 
+            // lblResultPhone
+            // 
+            lblResultPhone.AutoSize = true;
+            lblResultPhone.Location = new Point(250, 228);
+            lblResultPhone.Name = "lblResultPhone";
+            lblResultPhone.Size = new Size(0, 25);
+            lblResultPhone.TabIndex = 17;
+            // 
+            // lblResult
+            // 
+            lblResult.AutoSize = true;
+            lblResult.Location = new Point(249, 316);
+            lblResult.Name = "lblResult";
+            lblResult.Size = new Size(0, 25);
+            lblResult.TabIndex = 18;
+            // 
             // EditProfile
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -307,5 +373,11 @@
         private PictureBox pictureBox1;
         private CheckBox login_showPass;
         private Button btn_LogOut;
+        private Label lblResult;
+        private Label lblResultPhone;
+        private TextBox txt_Email;
+        private Label label8;
+        private TextBox txt_Phone;
+        private Label label7;
     }
 }

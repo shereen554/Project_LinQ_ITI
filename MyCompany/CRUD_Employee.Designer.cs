@@ -52,6 +52,13 @@
             label9 = new Label();
             label8 = new Label();
             label10 = new Label();
+            label11 = new Label();
+            txt_Phone = new TextBox();
+            label12 = new Label();
+            txt_Email = new TextBox();
+            login_showPass = new CheckBox();
+            lblResultPhone = new Label();
+            lblResult = new Label();
             ((System.ComponentModel.ISupportInitialize)dgv_Employee).BeginInit();
             SuspendLayout();
             // 
@@ -60,16 +67,16 @@
             dgv_Employee.BackgroundColor = SystemColors.ControlLightLight;
             dgv_Employee.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_Employee.Dock = DockStyle.Bottom;
-            dgv_Employee.Location = new Point(0, 297);
+            dgv_Employee.Location = new Point(0, 361);
             dgv_Employee.Name = "dgv_Employee";
             dgv_Employee.RowHeadersWidth = 62;
-            dgv_Employee.Size = new Size(1131, 311);
+            dgv_Employee.Size = new Size(1131, 247);
             dgv_Employee.TabIndex = 0;
             dgv_Employee.RowHeaderMouseDoubleClick += dgv_Employee_RowHeaderMouseDoubleClick;
             // 
             // btn_add
             // 
-            btn_add.Location = new Point(629, 233);
+            btn_add.Location = new Point(650, 299);
             btn_add.Name = "btn_add";
             btn_add.Size = new Size(126, 42);
             btn_add.TabIndex = 1;
@@ -124,7 +131,7 @@
             // 
             // btn_update
             // 
-            btn_update.Location = new Point(792, 233);
+            btn_update.Location = new Point(813, 299);
             btn_update.Name = "btn_update";
             btn_update.Size = new Size(126, 42);
             btn_update.TabIndex = 9;
@@ -134,7 +141,7 @@
             // 
             // btn_delete
             // 
-            btn_delete.Location = new Point(951, 229);
+            btn_delete.Location = new Point(972, 295);
             btn_delete.Name = "btn_delete";
             btn_delete.Size = new Size(126, 42);
             btn_delete.TabIndex = 10;
@@ -232,7 +239,7 @@
             lb_password.AutoSize = true;
             lb_password.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             lb_password.ForeColor = SystemColors.Highlight;
-            lb_password.Location = new Point(393, 119);
+            lb_password.Location = new Point(394, 118);
             lb_password.Name = "lb_password";
             lb_password.Size = new Size(116, 32);
             lb_password.TabIndex = 21;
@@ -240,18 +247,19 @@
             // 
             // txt_Password
             // 
+            txt_Password.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txt_Password.Location = new Point(525, 118);
             txt_Password.MaxLength = 50;
             txt_Password.Name = "txt_Password";
-            txt_Password.PasswordChar = '*';
-            txt_Password.Size = new Size(197, 31);
+            txt_Password.PasswordChar = '.';
+            txt_Password.Size = new Size(197, 32);
             txt_Password.TabIndex = 20;
             // 
             // dt_BirthDate
             // 
-            dt_BirthDate.Location = new Point(525, 171);
+            dt_BirthDate.Location = new Point(917, 201);
             dt_BirthDate.Name = "dt_BirthDate";
-            dt_BirthDate.Size = new Size(197, 31);
+            dt_BirthDate.Size = new Size(182, 31);
             dt_BirthDate.TabIndex = 22;
             // 
             // label9
@@ -259,7 +267,7 @@
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label9.ForeColor = SystemColors.Highlight;
-            label9.Location = new Point(393, 172);
+            label9.Location = new Point(749, 201);
             label9.Name = "label9";
             label9.Size = new Size(126, 32);
             label9.TabIndex = 23;
@@ -289,12 +297,86 @@
             label10.Text = "<-- back";
             label10.Click += label10_Click;
             // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label11.ForeColor = SystemColors.Highlight;
+            label11.Location = new Point(409, 190);
+            label11.Name = "label11";
+            label11.Size = new Size(81, 32);
+            label11.TabIndex = 27;
+            label11.Text = "Phone";
+            // 
+            // txt_Phone
+            // 
+            txt_Phone.Location = new Point(526, 194);
+            txt_Phone.MaxLength = 50;
+            txt_Phone.Name = "txt_Phone";
+            txt_Phone.Size = new Size(197, 31);
+            txt_Phone.TabIndex = 26;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label12.ForeColor = SystemColors.Highlight;
+            label12.Location = new Point(42, 282);
+            label12.Name = "label12";
+            label12.Size = new Size(75, 32);
+            label12.TabIndex = 29;
+            label12.Text = "Email";
+            // 
+            // txt_Email
+            // 
+            txt_Email.Location = new Point(159, 286);
+            txt_Email.MaxLength = 50;
+            txt_Email.Name = "txt_Email";
+            txt_Email.Size = new Size(197, 31);
+            txt_Email.TabIndex = 28;
+            // 
+            // login_showPass
+            // 
+            login_showPass.AutoSize = true;
+            login_showPass.ForeColor = Color.White;
+            login_showPass.Location = new Point(549, 160);
+            login_showPass.Name = "login_showPass";
+            login_showPass.Size = new Size(82, 29);
+            login_showPass.TabIndex = 30;
+            login_showPass.Text = "Show";
+            login_showPass.UseVisualStyleBackColor = true;
+            login_showPass.CheckedChanged += checkBox1_CheckedChanged;
+            // 
+            // lblResultPhone
+            // 
+            lblResultPhone.AutoSize = true;
+            lblResultPhone.ForeColor = SystemColors.ControlLight;
+            lblResultPhone.Location = new Point(543, 234);
+            lblResultPhone.Name = "lblResultPhone";
+            lblResultPhone.Size = new Size(0, 25);
+            lblResultPhone.TabIndex = 31;
+            // 
+            // lblResult
+            // 
+            lblResult.AutoSize = true;
+            lblResult.Location = new Point(200, 327);
+            lblResult.Name = "lblResult";
+            lblResult.Size = new Size(0, 25);
+            lblResult.TabIndex = 32;
+            // 
             // CRUD_Employee
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaptionText;
             ClientSize = new Size(1131, 608);
+            Controls.Add(lblResult);
+            Controls.Add(lblResultPhone);
+            Controls.Add(login_showPass);
+            Controls.Add(label12);
+            Controls.Add(txt_Email);
+            Controls.Add(label11);
+            Controls.Add(txt_Phone);
             Controls.Add(label10);
             Controls.Add(label8);
             Controls.Add(label9);
@@ -355,5 +437,12 @@
         private Label label9;
         private Label label8;
         private Label label10;
+        private Label label11;
+        private TextBox txt_Phone;
+        private Label label12;
+        private TextBox txt_Email;
+        private CheckBox login_showPass;
+        private Label lblResultPhone;
+        private Label lblResult;
     }
 }

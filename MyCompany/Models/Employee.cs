@@ -28,6 +28,8 @@ namespace MyCompany.Models
 
         [StringLength(1)]
         public Char Gender { get; set; }
+        public string Email { get; set; }   
+        public string Phone { get; set; }
 
         public int? Salary { get; set; }
         public string Role { get; set; }

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyCompany.Models;
 
@@ -11,9 +12,11 @@ using MyCompany.Models;
 namespace MyCompany.Migrations
 {
     [DbContext(typeof(MyCompanyContext))]
-    partial class MyCompanyContextModelSnapshot : ModelSnapshot
+    [Migration("20250206065345_add-email")]
+    partial class addemail
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -45,10 +45,16 @@
             btn_register = new Button();
             label7 = new Label();
             panel1 = new Panel();
+            lblResult = new Label();
+            label10 = new Label();
+            label9 = new Label();
+            txt_Phone = new TextBox();
+            txt_Email = new TextBox();
             login_showPass = new CheckBox();
             linkLabel1 = new LinkLabel();
             label8 = new Label();
             pictureBox1 = new PictureBox();
+            lblResultPhone = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -119,7 +125,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 11F, FontStyle.Bold | FontStyle.Italic);
             label4.ForeColor = SystemColors.Highlight;
-            label4.Location = new Point(75, 269);
+            label4.Location = new Point(75, 422);
             label4.Name = "label4";
             label4.Size = new Size(94, 30);
             label4.TabIndex = 7;
@@ -128,7 +134,7 @@
             // txt_address
             // 
             txt_address.ForeColor = SystemColors.Highlight;
-            txt_address.Location = new Point(187, 270);
+            txt_address.Location = new Point(187, 423);
             txt_address.Multiline = true;
             txt_address.Name = "txt_address";
             txt_address.Size = new Size(234, 37);
@@ -139,7 +145,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 11F, FontStyle.Bold | FontStyle.Italic);
             label5.ForeColor = SystemColors.Highlight;
-            label5.Location = new Point(50, 330);
+            label5.Location = new Point(50, 483);
             label5.Name = "label5";
             label5.Size = new Size(119, 30);
             label5.TabIndex = 9;
@@ -147,7 +153,7 @@
             // 
             // dt_birthDate
             // 
-            dt_birthDate.Location = new Point(187, 328);
+            dt_birthDate.Location = new Point(187, 481);
             dt_birthDate.Name = "dt_birthDate";
             dt_birthDate.Size = new Size(234, 31);
             dt_birthDate.TabIndex = 10;
@@ -156,7 +162,7 @@
             // 
             rb_Male.AutoSize = true;
             rb_Male.ForeColor = SystemColors.Highlight;
-            rb_Male.Location = new Point(205, 379);
+            rb_Male.Location = new Point(205, 532);
             rb_Male.Name = "rb_Male";
             rb_Male.Size = new Size(76, 29);
             rb_Male.TabIndex = 11;
@@ -168,7 +174,7 @@
             // 
             rb_femail.AutoSize = true;
             rb_femail.ForeColor = SystemColors.Highlight;
-            rb_femail.Location = new Point(311, 379);
+            rb_femail.Location = new Point(311, 532);
             rb_femail.Name = "rb_femail";
             rb_femail.Size = new Size(90, 29);
             rb_femail.TabIndex = 12;
@@ -181,7 +187,7 @@
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 11F, FontStyle.Bold | FontStyle.Italic);
             label6.ForeColor = SystemColors.Highlight;
-            label6.Location = new Point(83, 379);
+            label6.Location = new Point(83, 532);
             label6.Name = "label6";
             label6.Size = new Size(86, 30);
             label6.TabIndex = 13;
@@ -192,7 +198,7 @@
             btn_register.BackColor = SystemColors.Highlight;
             btn_register.Font = new Font("Segoe UI", 14F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             btn_register.ForeColor = Color.White;
-            btn_register.Location = new Point(178, 456);
+            btn_register.Location = new Point(187, 568);
             btn_register.Name = "btn_register";
             btn_register.Size = new Size(140, 46);
             btn_register.TabIndex = 14;
@@ -214,6 +220,12 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(lblResultPhone);
+            panel1.Controls.Add(lblResult);
+            panel1.Controls.Add(label10);
+            panel1.Controls.Add(label9);
+            panel1.Controls.Add(txt_Phone);
+            panel1.Controls.Add(txt_Email);
             panel1.Controls.Add(login_showPass);
             panel1.Controls.Add(linkLabel1);
             panel1.Controls.Add(label1);
@@ -233,9 +245,59 @@
             panel1.Controls.Add(label4);
             panel1.Location = new Point(462, 48);
             panel1.Name = "panel1";
-            panel1.Size = new Size(482, 514);
+            panel1.Size = new Size(478, 654);
             panel1.TabIndex = 16;
             panel1.Paint += panel1_Paint;
+            // 
+            // lblResult
+            // 
+            lblResult.AutoSize = true;
+            lblResult.Location = new Point(266, 311);
+            lblResult.Name = "lblResult";
+            lblResult.Size = new Size(0, 25);
+            lblResult.TabIndex = 22;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 11F, FontStyle.Bold | FontStyle.Italic);
+            label10.ForeColor = SystemColors.Highlight;
+            label10.Location = new Point(83, 357);
+            label10.Name = "label10";
+            label10.Size = new Size(76, 30);
+            label10.TabIndex = 21;
+            label10.Text = "phone";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 11F, FontStyle.Bold | FontStyle.Italic);
+            label9.ForeColor = SystemColors.Highlight;
+            label9.Location = new Point(83, 278);
+            label9.Name = "label9";
+            label9.Size = new Size(72, 30);
+            label9.TabIndex = 20;
+            label9.Text = "Email";
+            // 
+            // txt_Phone
+            // 
+            txt_Phone.ForeColor = SystemColors.Highlight;
+            txt_Phone.Location = new Point(187, 350);
+            txt_Phone.Multiline = true;
+            txt_Phone.Name = "txt_Phone";
+            txt_Phone.PasswordChar = '*';
+            txt_Phone.Size = new Size(234, 37);
+            txt_Phone.TabIndex = 19;
+            // 
+            // txt_Email
+            // 
+            txt_Email.ForeColor = SystemColors.Highlight;
+            txt_Email.Location = new Point(187, 271);
+            txt_Email.Multiline = true;
+            txt_Email.Name = "txt_Email";
+            txt_Email.PasswordChar = '*';
+            txt_Email.Size = new Size(234, 37);
+            txt_Email.TabIndex = 18;
             // 
             // login_showPass
             // 
@@ -254,7 +316,7 @@
             linkLabel1.AutoSize = true;
             linkLabel1.ForeColor = SystemColors.ActiveCaption;
             linkLabel1.LinkColor = SystemColors.MenuHighlight;
-            linkLabel1.Location = new Point(189, 411);
+            linkLabel1.Location = new Point(165, 617);
             linkLabel1.Name = "linkLabel1";
             linkLabel1.Size = new Size(212, 25);
             linkLabel1.TabIndex = 16;
@@ -285,6 +347,14 @@
             pictureBox1.TabIndex = 18;
             pictureBox1.TabStop = false;
             // 
+            // lblResultPhone
+            // 
+            lblResultPhone.AutoSize = true;
+            lblResultPhone.Location = new Point(271, 393);
+            lblResultPhone.Name = "lblResultPhone";
+            lblResultPhone.Size = new Size(0, 25);
+            lblResultPhone.TabIndex = 23;
+            // 
             // Register
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -292,7 +362,7 @@
             BackColor = SystemColors.ActiveCaptionText;
             BackgroundImage = Properties.Resources.programming_background4;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1028, 574);
+            ClientSize = new Size(1078, 725);
             Controls.Add(pictureBox1);
             Controls.Add(label8);
             Controls.Add(panel1);
@@ -331,5 +401,11 @@
         private Label label8;
         private PictureBox pictureBox1;
         private CheckBox login_showPass;
+        private Label label10;
+        private Label label9;
+        private TextBox txt_Phone;
+        private TextBox txt_Email;
+        private Label lblResult;
+        private Label lblResultPhone;
     }
 }

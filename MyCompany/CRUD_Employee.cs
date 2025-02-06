@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -25,7 +26,7 @@ namespace MyCompany
         }
         public void ShowEmployee()
         {
-            dgv_Employee.DataSource = db.Employees.Where(n => n.Role == "User").Select(n => new { n.SSN, n.Name, n.UserName, n.BirthDate, n.Address, n.Salary, n.Dno, n.Superssn, n.Role, Department = n.DnoNavigation.Dname, SuperVisor = n.SuperssnNavigation.Name }).ToList();
+            dgv_Employee.DataSource = db.Employees.Where(n => n.Role == "User").Select(n => new { n.SSN, n.Name, n.UserName, n.BirthDate, n.Address,n.Phone,n.Email, n.Salary, n.Dno, n.Superssn, n.Role, Department = n.DnoNavigation.Dname, SuperVisor = n.SuperssnNavigation.Name }).ToList();
             dgv_Employee.Columns["Role"].Visible = false;
             dgv_Employee.Columns["Superssn"].Visible = false;
             dgv_Employee.Columns["Dno"].Visible = false;
@@ -82,7 +83,33 @@ namespace MyCompany
                 return;
             }
 
-            // Create Employee object and add it to the database
+            string email = txt_Email.Text.Trim();
+            if (IsValidEmail(email))
+            {
+                lblResult.Text = "Email is valid ✅";
+                lblResult.ForeColor = System.Drawing.Color.Green;
+
+            }
+            else
+            {
+                lblResult.Text = "Email is invalid ❌";
+                lblResult.ForeColor = System.Drawing.Color.Red;
+                return;
+            }
+            string phoneNumber = txt_Phone.Text.Trim();
+            if (IsValidEgyptianPhone(phoneNumber))
+            {
+                lblResultPhone.Text = "Phone is valid ✅ ";
+                lblResultPhone.ForeColor = System.Drawing.Color.Green;
+            }
+            else
+            {
+                lblResultPhone.Text = "Phone is invalid ❌";
+                lblResultPhone.ForeColor = System.Drawing.Color.Red;
+                return;
+            }
+
+
             Employee employee = new Employee
             {
                 Name = txt_Name.Text,
@@ -94,7 +121,9 @@ namespace MyCompany
                 UserName = txt_username.Text,
                 Dno = departmentId,
                 Superssn = superSsn,
-                Passowrd = txt_Password.Text
+                Passowrd = txt_Password.Text,
+                Email=txt_Email.Text,
+                Phone=txt_Phone.Text
             };
 
             db.Employees.Add(employee);
@@ -153,6 +182,32 @@ namespace MyCompany
                 return;
             }
 
+            string email = txt_Email.Text.Trim();
+            if (IsValidEmail(email))
+            {
+                lblResult.Text = "Email is valid ✅";
+                lblResult.ForeColor = System.Drawing.Color.Green;
+
+            }
+            else
+            {
+                lblResult.Text = "Email is invalid ❌";
+                lblResult.ForeColor = System.Drawing.Color.Red;
+                return;
+            }
+            string phoneNumber = txt_Phone.Text.Trim();
+            if (IsValidEgyptianPhone(phoneNumber))
+            {
+                lblResultPhone.Text = "Phone is valid ✅ ";
+                lblResultPhone.ForeColor = System.Drawing.Color.Green;
+            }
+            else
+            {
+                lblResultPhone.Text = "Phone is invalid ❌";
+                lblResultPhone.ForeColor = System.Drawing.Color.Red;
+                return;
+            }
+
             Employee emp = db.Employees.FirstOrDefault(n => n.SSN == id);
             if (emp != null)
             {
@@ -164,6 +219,9 @@ namespace MyCompany
                 emp.BirthDate = dt_BirthDate.Value;
                 emp.Gender = char.Parse(txt_gender.Text);
                 emp.UserName = txt_username.Text;
+                emp.Email = email;
+                emp.Phone=phoneNumber;
+                
                 db.SaveChanges();
                 MessageBox.Show("Employee Updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ShowEmployee();
@@ -177,6 +235,16 @@ namespace MyCompany
                 MessageBox.Show("Employee Not Found ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+        }
+        private bool IsValidEmail(string email)
+        {
+            string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+            return Regex.IsMatch(email, pattern);
+        }
+        private bool IsValidEgyptianPhone(string phoneNumber)
+        {
+            string pattern = @"^(010|011|012|015)\d{8}$";
+            return Regex.IsMatch(phoneNumber, pattern);
         }
 
         private void btn_delete_Click(object sender, EventArgs e)
@@ -207,6 +275,11 @@ namespace MyCompany
         {
             DashBoard dash = new DashBoard(_UserName);
             dash.Show();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            txt_Password.PasswordChar = login_showPass.Checked ? '\0' : '*';
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -67,6 +68,31 @@ namespace MyCompany
                 return;
             }
 
+            string email = txt_Email.Text.Trim();
+            if (IsValidEmail(email))
+            {
+                lblResult.Text = "Email is valid ✅";
+                lblResult.ForeColor = System.Drawing.Color.Green;
+               
+            }
+            else
+            {
+                lblResult.Text = "Email is invalid ❌";
+                lblResult.ForeColor = System.Drawing.Color.Red;
+                return;
+            }
+            string phoneNumber = txt_Phone.Text.Trim();
+            if (IsValidEgyptianPhone(phoneNumber))
+            {
+                lblResultPhone.Text = "Phone is valid ✅ ";
+                lblResultPhone.ForeColor = System.Drawing.Color.Green;
+            }
+            else
+            {
+                lblResultPhone.Text = "Phone is invalid ❌";
+                lblResultPhone.ForeColor = System.Drawing.Color.Red;
+                return;
+            }
 
             Employee employee = new Employee
             {
@@ -76,7 +102,9 @@ namespace MyCompany
                 BirthDate = dt_birthDate.Value,
                 Passowrd = txt_password.Text,
                 Gender = gender,
-                Role = "User"
+                Role = "User",
+                Phone=phoneNumber,
+                Email=email
             };
 
             try
@@ -96,6 +124,17 @@ namespace MyCompany
             }
 
 
+        }
+
+        private bool IsValidEmail(string email)
+        {
+            string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+            return Regex.IsMatch(email, pattern);
+        }
+        private bool IsValidEgyptianPhone(string phoneNumber)
+        {
+            string pattern = @"^(010|011|012|015)\d{8}$";
+            return Regex.IsMatch(phoneNumber, pattern);
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

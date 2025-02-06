@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -54,6 +55,7 @@ namespace MyCompany
             }
 
 
+
             if (txt_Password.Text.Length < 8)
             {
                 MessageBox.Show("Password must be at least 8 characters long.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -66,12 +68,50 @@ namespace MyCompany
                 MessageBox.Show("Name must be at least 3 characters long.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
+            string email = txt_Email.Text.Trim();
+            if (IsValidEmail(email))
+            {
+                lblResult.Text = "Email is valid ✅";
+                lblResult.ForeColor = System.Drawing.Color.Green;
+
+            }
+            else
+            {
+                lblResult.Text = "Email is invalid ❌";
+                lblResult.ForeColor = System.Drawing.Color.Red;
+                return;
+            }
+            string phoneNumber = txt_Phone.Text.Trim();
+            if (IsValidEgyptianPhone(phoneNumber))
+            {
+                lblResultPhone.Text = "Phone is valid ✅ ";
+                lblResultPhone.ForeColor = System.Drawing.Color.Green;
+            }
+            else
+            {
+                lblResultPhone.Text = "Phone is invalid ❌";
+                lblResultPhone.ForeColor = System.Drawing.Color.Red;
+                return;
+            }
+
             employee.Name = txt_Name.Text;
             employee.Address = txt_Address.Text;
             db.SaveChanges();
 
             MessageBox.Show("Update Data !", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             txt_Address.Text = txt_Name.Text = "";
+        }
+
+        private bool IsValidEmail(string email)
+        {
+            string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+            return Regex.IsMatch(email, pattern);
+        }
+        private bool IsValidEgyptianPhone(string phoneNumber)
+        {
+            string pattern = @"^(010|011|012|015)\d{8}$";
+            return Regex.IsMatch(phoneNumber, pattern);
         }
 
         private void button2_Click(object sender, EventArgs e)
