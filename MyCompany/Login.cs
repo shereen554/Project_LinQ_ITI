@@ -39,10 +39,20 @@ namespace MyCompany
             if (employee != null)
             {
                 MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if(employee.Role=="User")
+                {
+                    this.Hide();
+                    ShowProfile showProfile = new ShowProfile(txt_userName.Text);
+                    showProfile.ShowDialog();
+                }
+                else
+                {
+                    this.Hide();
+                    DashBoard dashBoard=new DashBoard(txt_userName.Text);
+                    dashBoard.ShowDialog(); 
+                }
                 // Redirect user to their profile page
-                this.Hide();
-                ShowProfile showProfile = new ShowProfile(txt_userName.Text);
-                showProfile.ShowDialog();
+
             }
             else
             {

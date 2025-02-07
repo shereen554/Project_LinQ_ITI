@@ -36,6 +36,7 @@ namespace MyCompany
                 lb_Name.Text = employee.Name;
                 lb_userName.Text = employee.UserName;
 
+
             }
 
             var department = db.Departments.FirstOrDefault(n => n.Dnum == employee.Dno);

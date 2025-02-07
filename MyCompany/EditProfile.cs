@@ -42,6 +42,8 @@ namespace MyCompany
 
             txt_Name.Text = employee.Name;
             txt_Address.Text = employee.Address;
+            txt_Email.Text = employee.Email;
+            txt_Phone.Text = employee.Phone;
 
         }
 
@@ -51,14 +53,6 @@ namespace MyCompany
               string.IsNullOrWhiteSpace(txt_Address.Text))
             {
                 MessageBox.Show("All fields are required. Please fill in all the details.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-
-
-            if (txt_Password.Text.Length < 8)
-            {
-                MessageBox.Show("Password must be at least 8 characters long.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -100,7 +94,7 @@ namespace MyCompany
             db.SaveChanges();
 
             MessageBox.Show("Update Data !", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            txt_Address.Text = txt_Name.Text = "";
+            txt_Address.Text = txt_Name.Text = txt_Email.Text=txt_Phone.Text="";
         }
 
         private bool IsValidEmail(string email)
@@ -148,9 +142,19 @@ namespace MyCompany
 
         private void btn_LogOut_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            ShowProfile showProfile = new ShowProfile(_username);
-            showProfile.ShowDialog();
+            if(employee.Role=="User")
+            {
+                this.Hide();
+                ShowProfile showProfile = new ShowProfile(_username);
+                showProfile.ShowDialog();
+            }
+            else
+            {
+                this.Hide();
+                DashBoard dashBoard= new DashBoard();
+                dashBoard.ShowDialog();
+            }
+
 
         }
     }

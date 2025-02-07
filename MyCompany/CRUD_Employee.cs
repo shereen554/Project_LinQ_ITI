@@ -26,7 +26,7 @@ namespace MyCompany
         }
         public void ShowEmployee()
         {
-            dgv_Employee.DataSource = db.Employees.Where(n => n.Role == "User").Select(n => new { n.SSN, n.Name, n.UserName, n.BirthDate, n.Address,n.Phone,n.Email, n.Salary, n.Dno, n.Superssn, n.Role, Department = n.DnoNavigation.Dname, SuperVisor = n.SuperssnNavigation.Name }).ToList();
+            dgv_Employee.DataSource = db.Employees.Where(n => n.Role == "User").Select(n => new { n.SSN, n.Name, n.UserName, n.BirthDate, n.Gender,n.Address,n.Phone,n.Email, n.Salary, n.Dno, n.Superssn, n.Role, Department = n.DnoNavigation.Dname, SuperVisor = n.SuperssnNavigation.Name }).ToList();
             dgv_Employee.Columns["Role"].Visible = false;
             dgv_Employee.Columns["Superssn"].Visible = false;
             dgv_Employee.Columns["Dno"].Visible = false;
@@ -38,6 +38,7 @@ namespace MyCompany
             cb_Dept.DataSource = db.Departments.ToList();
             cb_Dept.ValueMember = "Dnum";
             cb_Dept.DisplayMember = "Dname";
+            txt_address.Text = txt_gender.Text = txt_Name.Text = txt_Password.Text = txt_salary.Text = txt_username.Text=txt_Email.Text=txt_Phone.Text = "";
 
 
         }
@@ -71,7 +72,7 @@ namespace MyCompany
             }
 
 
-            if (txt_gender.Text != "F" || txt_gender.Text != "M")
+            if (txt_gender.Text != "F" && txt_gender.Text != "M")
             {
                 MessageBox.Show("Gender must be a single character (M or F)!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -130,12 +131,8 @@ namespace MyCompany
             db.SaveChanges();
 
             MessageBox.Show("Employee added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            // Refresh DataGridView
             ShowEmployee();
 
-            // Clear fields after adding
-            txt_address.Text = txt_gender.Text = txt_Name.Text = txt_Password.Text = txt_salary.Text = txt_username.Text = "";
         }
 
         private void dgv_Employee_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -147,11 +144,14 @@ namespace MyCompany
             txt_Name.Text = emp.Name;
             txt_salary.Text = emp.Salary.ToString();
             txt_username.Text = emp.UserName;
-            txt_Password.Visible = false;
-            lb_password.Visible = false;
+            txt_Phone.Text = emp.Phone.ToString();
+            txt_Email.Text = emp.Email.ToString();
+            //txt_Password.Visible = false;
+            lb_password.Visible = true;
             btn_add.Visible = false;
             btn_delete.Visible = true;
             btn_update.Visible = true;
+            //lb_password.Visible=true;
         }
 
         private void btn_update_Click(object sender, EventArgs e)
@@ -165,6 +165,12 @@ namespace MyCompany
                cb_Super.SelectedValue == null)
             {
                 MessageBox.Show("All fields must be filled!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (txt_gender.Text != "F" && txt_gender.Text != "M")
+            {
+                MessageBox.Show("Gender must be a single character (M or F)!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -225,7 +231,6 @@ namespace MyCompany
                 db.SaveChanges();
                 MessageBox.Show("Employee Updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ShowEmployee();
-                txt_address.Text = txt_gender.Text = txt_Name.Text = txt_Password.Text = txt_salary.Text = txt_username.Text = "";
                 btn_add.Visible = true;
                 btn_delete.Visible = false;
                 btn_update.Visible = false;
@@ -258,7 +263,7 @@ namespace MyCompany
                     db.SaveChanges();
                     MessageBox.Show("Employee Deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ShowEmployee();
-                    txt_address.Text = txt_gender.Text = txt_Name.Text = txt_Password.Text = txt_salary.Text = txt_username.Text = "";
+
                     btn_add.Visible = true;
                     btn_delete.Visible = false;
                     btn_update.Visible = false;
@@ -273,6 +278,7 @@ namespace MyCompany
 
         private void label10_Click(object sender, EventArgs e)
         {
+            this.Hide();
             DashBoard dash = new DashBoard(_UserName);
             dash.Show();
         }
